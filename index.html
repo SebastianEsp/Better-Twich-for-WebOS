@@ -17,8 +17,8 @@
             node: document.getElementById('elm')
         });
         app.ports.streamlink.subscribe(function(data) {
-            console.log(JSON.stringify(data));
-            loadStream(JSON.stringify(data));
+            console.log(data);
+            loadStream(data);
         });
     </script>
 </body>
