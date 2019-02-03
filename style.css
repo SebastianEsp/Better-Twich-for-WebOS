@@ -1,0 +1,47 @@
+body{
+    background-color: rgb(32, 32, 32);
+}
+
+h1{
+    color: chocolate;
+}
+
+input{
+    width: 450px;
+    padding:3px;
+    font-size:16px; 
+    border-color:chocolate; 
+    border-width:3px; 
+    border-style:solid; 
+    text-align:center;  
+} 
+input:focus{ 
+    outline:none; 
+} 
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#video{
+    width: auto;
+    height: 80vh;
+    margin: auto;
+    padding-bottom: 10px;
+}
+
+#uri-field{
+    margin-right: 10px;
+}
+
+#load-stream-btn{
+    height: 30px;
+    font-size:16px; 
+    border-color:chocolate; 
+    border-width:3px; 
+    border-style:solid; 
+    text-align:center;  
+}
