@@ -4964,7 +4964,7 @@ var elm$core$Platform$Cmd$batch = _Platform_batch;
 var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
 var author$project$Main$init = function (_n0) {
 	return _Utils_Tuple2(
-		{streamUrl: '', title: 'Better Twitch for WebOS'},
+		{streamId: '', streamUrl: '', title: 'Better Twitch for WebOS'},
 		elm$core$Platform$Cmd$none);
 };
 var elm$core$Platform$Sub$batch = _Platform_batch;
@@ -5863,7 +5863,7 @@ var author$project$Main$getVideo = function (model) {
 			method: 'GET',
 			timeout: elm$core$Maybe$Nothing,
 			tracker: elm$core$Maybe$Nothing,
-			url: model.streamUrl
+			url: 'https://api.twitch.tv/helix/videos?id=' + model.streamUrl
 		});
 };
 var author$project$Main$streamlink = _Platform_outgoingPort('streamlink', elm$json$Json$Encode$string);

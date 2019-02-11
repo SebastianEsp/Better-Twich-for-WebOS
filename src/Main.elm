@@ -12,6 +12,7 @@ import Json.Decode.Pipeline as JDP
 
 port streamlink : String -> Cmd msg
 port apiresult : String -> Cmd msg
+port streamId : (E.Value -> msg) -> Sub msg
 
 main =
   Browser.element
@@ -26,7 +27,8 @@ main =
 type alias Model = 
   {
     title : String,
-    streamUrl : String
+    streamUrl : String,
+    streamId : String
   }
 
 init : () -> (Model, Cmd Msg)
@@ -34,7 +36,8 @@ init _ =
   ( 
     {
     title = "Better Twitch for WebOS",
-    streamUrl = ""
+    streamUrl = "",
+    streamId = ""
     },
     Cmd.none
   )
@@ -44,7 +47,7 @@ getVideo model =
   Http.request
     { method = "GET"
     , headers = [Http.header "Client-ID" ("jq2no6sh53vr3258dgzc70ky4fv00u")]
-    , url = model.streamUrl
+    , url = "https://api.twitch.tv/helix/videos?id=" ++ model.streamUrl
     , body = Http.emptyBody
     , expect = Http.expectString GotVideo
     , timeout = Nothing
