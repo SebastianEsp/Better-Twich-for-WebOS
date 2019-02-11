@@ -20,6 +20,20 @@
             console.log(data);
             loadStream(data);
         });
+        app.ports.apiresult.subscribe(function(data) {
+            var obj = JSON.parse(data);
+            var thumbnail = obj.data[0].thumbnail_url;
+
+            console.log(obj);
+
+            var pattern = new RegExp(/s3_vods\/(\S*)\/thumb\//)
+            var result = pattern.exec(thumbnail); 
+            console.log(result[1])
+
+            var hls_source = "https://vod-metro.twitch.tv/" + result[1] + "/chunked/index-dvr.m3u8";
+            console.log(hls_source);
+            loadStream(hls_source);
+        });
     </script>
 </body>
 
